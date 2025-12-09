@@ -9,7 +9,6 @@ on:
           environment:
             description: 'Environment to deploy'
             required: true
-            type: environment
   push:
     branches: [ "master" ]
   pull_request:
