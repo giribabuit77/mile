@@ -22,7 +22,6 @@ jobs:
     steps:
     - name: checkout code
     - uses: actions/checkout@v4
-    steps:
     - name: install dependencies
       uses: actions/setup-node@v4
       with:
