@@ -36,7 +36,10 @@ jobs:
        uses: actions/upload-artifact@v4
        with:
         name: coverage-report
-        path: coverage/coverage-summary.json   
+        path: coverage/coverage-summary.json
+
+     - name: get step output
+       run: echo "${{steps.test-result.outputs.test-run}}"
   build:
     needs: ['test']
     runs-on: ubuntu-latest
@@ -54,5 +57,5 @@ jobs:
      - name: build
        run: npm run build 
 
-     - name: get output from test jobs
+     - name: get job output
        run: echo "${{needs.test.outputs.test-output}}"  
