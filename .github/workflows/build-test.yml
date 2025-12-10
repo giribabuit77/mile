@@ -25,4 +25,9 @@ jobs:
 
      - name: test
        run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+     - name: deployment
+       run: echo 'Deploy ....'     
 
