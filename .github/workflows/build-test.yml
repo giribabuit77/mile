@@ -25,6 +25,12 @@ jobs:
 
      - name: test
        run: npm test
+
+     - name: upload artifact
+       uses: actions/upload-artifact@v3
+       with:
+        name: coverage-report
+        path: coverage/coverage-summary.json   
   build:
     needs: ['test']
     runs-on: ubuntu-latest
@@ -37,7 +43,7 @@ jobs:
        with:
         node-version: '22.17.1'
         cache: 'npm'
-       run: npm ci
+     - run: npm ci
 
      - name: build
        run: npm run build 
