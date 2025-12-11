@@ -1,8 +1,21 @@
 name: Deploy
-on: workflow_call
+on: 
+ workflow_call:
+    inputs:
+      art-name:
+        default: dist
+        required: false
+        type: string
 jobs:
    deployment: 
     runs-on: ubuntu-latest
     steps:
+      - name: get artifact
+        uses: actions/download-artifact@v4
+        with:
+           name: ${{inputs.art-name}}
+
       - name: deploy
-        run: echo "deployed ..."
+        run: | 
+             echo ls
+             echo "deployed ..."

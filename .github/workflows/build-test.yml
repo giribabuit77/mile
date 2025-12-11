@@ -62,4 +62,6 @@ jobs:
 
   deploy:
       needs: ['test']
-      uses: './.github/workflows/deploy.yml'     
+      uses: './.github/workflows/deploy.yml'
+      with:
+        art-name: coverage-report 
