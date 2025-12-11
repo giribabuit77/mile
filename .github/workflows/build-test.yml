@@ -61,7 +61,7 @@ jobs:
        run: echo "${{needs.test.outputs.test-output}}"
 
   deploy:
-      needs: ['test']
+      needs: ['build']
       uses: './.github/workflows/deploy.yml'
       with:
         art-name: coverage-report 
@@ -71,4 +71,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get output value from reusable workflow
-        run: ${{needs.deploy.outputs.download-result}}
+        run: echo "${{needs.deploy.outputs.download-result}}"
