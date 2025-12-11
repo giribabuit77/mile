@@ -65,3 +65,10 @@ jobs:
       uses: './.github/workflows/deploy.yml'
       with:
         art-name: coverage-report 
+  
+  metrics:
+    needs: ['deploy']
+    runs-on: ubuntu-latest
+    steps:
+      - name: get output value from reusable workflow
+        run: ${{needs.deploy.outputs.download-result}}

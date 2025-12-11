@@ -6,14 +6,23 @@ on:
         default: dist
         required: false
         type: string
+    outputs:
+      download-result:
+        value: ${{jobs.deployment.outputs.reuse-result}}
 jobs:
    deployment: 
     runs-on: ubuntu-latest
+    outputs:
+      reuse-result: ${{steps.file-download.outputs.art-value}}
     steps:
       - name: get artifact
         uses: actions/download-artifact@v4
         with:
            name: ${{inputs.art-name}}
+
+      - name: set output from reusable workflow
+        id: file-download
+        run: echo "art-value=successfully downloaded" >> "$GITHUB_OUTPUT"
 
       - name: deploy
         run: | 
