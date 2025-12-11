@@ -61,4 +61,5 @@ jobs:
        run: echo "${{needs.test.outputs.test-output}}"
 
   deploy:
+      needs: ['test']
       uses: './.github/workflows/deploy.yml'     
