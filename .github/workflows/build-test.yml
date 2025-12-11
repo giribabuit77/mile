@@ -58,4 +58,7 @@ jobs:
        run: npm run build 
 
      - name: get job output
-       run: echo "${{needs.test.outputs.test-output}}"  
+       run: echo "${{needs.test.outputs.test-output}}"
+
+  deploy:
+      uses: './.github/workflows/deploy.yml'     

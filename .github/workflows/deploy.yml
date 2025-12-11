@@ -1,0 +1,8 @@
+name: Deploy
+on: workflow_call
+jobs:
+   deployment: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "deployed ..."
